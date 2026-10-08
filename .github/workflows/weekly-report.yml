@@ -1,0 +1,38 @@
+name: Weekly RevOps skills report
+
+on:
+  schedule:
+    - cron: "47 13 * * 1"   # Mondays 13:47 UTC (~9:47am ET)
+  workflow_dispatch:         # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write   # commit the report
+  issues: write     # open an issue so GitHub emails you the update
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Generate report
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python agent.py report > /dev/null
+      - name: Commit report
+        run: |
+          git config user.name "revops-coach-bot"
+          git config user.email "revops-coach-bot@users.noreply.github.com"
+          git add reports data
+          git commit -m "Weekly RevOps skills report $(date -u +%F)" || exit 0
+          git push
+      - name: Open issue with the report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "RevOps skills update — $(date -u +%F)" \
+            --body-file "reports/$(date -u +%F).md"

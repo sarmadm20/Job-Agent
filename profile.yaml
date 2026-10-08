@@ -1,0 +1,54 @@
+# ---------------------------------------------------------------
+# YOUR PROFILE — edit this file. The agent reads it every run.
+# Ratings: 1 = never touched it, 3 = can do it with docs open,
+#          5 = could teach it / have built it in production.
+# ---------------------------------------------------------------
+
+name: Sarmad
+current_role: Revenue Operations
+years_in_revops: 1          # TODO: update
+location: United States     # TODO: update — affects salary/job-market research
+
+# Where you want to be in 1–3 years. Be specific — the agent ranks skills
+# against this, so "RevOps Manager at a Series B SaaS" beats "grow my career".
+target_roles:
+  - Senior Revenue Operations Manager
+  - GTM Systems / RevOps Engineer
+
+# Tools you use day to day
+tools:
+  - HubSpot
+  - Apollo
+
+# Self-assessment. Add, remove or re-rate anything — be honest, the agent
+# can only find gaps you admit to.
+skills:
+  # HubSpot
+  hubspot_workflows_automation: 3
+  hubspot_properties_data_model: 3
+  hubspot_custom_objects_associations: 2
+  hubspot_reporting_dashboards: 3
+  hubspot_lead_scoring: 2
+  hubspot_operations_hub_custom_code: 1
+  # Apollo
+  apollo_sequences: 3
+  apollo_enrichment_data_hygiene: 3
+  apollo_hubspot_sync: 2
+  apollo_intent_signals_workflows: 2
+  # Cross-tool / foundational
+  lead_routing_assignment: 2
+  funnel_metrics_conversion_analysis: 2
+  attribution: 1
+  forecasting_pipeline_management: 1
+  sql: 1
+  spreadsheets_excel_sheets: 3
+  apis_webhooks_integrations: 1
+  no_code_automation_zapier_make: 2
+  ai_tools_for_gtm: 2
+  salesforce: 1
+  stakeholder_communication: 3
+
+# Optional: anything else the agent should know (company size, industry,
+# what your boss keeps asking for, what you enjoy / hate doing).
+notes: |
+  Mid-market B2B SaaS. TODO: replace with your real context.
